@@ -192,14 +192,6 @@ $('.ref-carousel').owlCarousel({
     window.fncSlider = fncSlider;
   }());
   
-  /* not part of the slider scripts */
-  
-  /* Slider initialization
-  options:
-  autoSliding - boolean
-  autoSlidingDelay - delay in ms. If audoSliding is on and no value provided, default value is 5000
-  blockASafterClick - boolean. If user clicked any sliding control, autosliding won't start again
-  */
   fncSlider(".example-slider", {autoSlidingDelay: 4000});
   
   var $demoCont = document.querySelector(".demo-cont");
@@ -210,13 +202,31 @@ $('.ref-carousel').owlCarousel({
 //     });
 //   });
   
-  document.querySelector(".demo-cont__credits-close").addEventListener("click", function() {
-    $demoCont.classList.remove("credits-active");
+  // document.querySelector(".demo-cont__credits-close").addEventListener("click", function() {
+  //   $demoCont.classList.remove("credits-active");
+  // });
+  
+  // document.querySelector(".js-activate-global-blending").addEventListener("click", function() {
+  //   document.querySelector(".example-slider").classList.toggle("m--global-blending-active");
+  // });
+
+  const counters = document.querySelectorAll('.counter');
+  const speed = 300;
+  
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+      const inc = target / speed;
+      if (count < target) {
+        counter.innerText = count + inc;
+        setTimeout(updateCount, 1);
+      } else {
+        counter.innerText = target;
+      }
+    };
+  
+    updateCount();
   });
   
-  document.querySelector(".js-activate-global-blending").addEventListener("click", function() {
-    document.querySelector(".example-slider").classList.toggle("m--global-blending-active");
-  });
-
-
    
