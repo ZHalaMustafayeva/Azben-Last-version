@@ -1,4 +1,22 @@
 
+$('.two-carousel').owlCarousel({
+  loop:true,
+  margin:5,
+  items:3,
+  dots:true,
+  autoplay:true,
+  responsive:{
+      0:{
+          items:1
+      },
+      600:{
+          items:3
+      },
+      1000:{
+          items:3
+      }
+  }
+})
 $('.one-carousel').owlCarousel({
     loop:true,
     margin:10,
@@ -16,6 +34,7 @@ $('.one-carousel').owlCarousel({
         }
     }
 });
+
 $('.ref-carousel').owlCarousel({
     loop:true,
     margin:10,
